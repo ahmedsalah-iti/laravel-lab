@@ -1,0 +1,264 @@
+/* Deep Shadow with Subtle Lift */
+.fb-shadow {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2), 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s ease;
+}
+.fb-shadow:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Vibrant Focus Ring with Darker Accent */
+.fb-focus {
+    outline: none;
+    transition: all 0.25s ease-in-out;
+}
+.fb-focus:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    border: 2px solid #3B82F6;
+    border-radius: 8px;
+}
+
+/* Consistent Gradient Border */
+.fb-border {
+    border: 2px solid;
+    border-image: linear-gradient(to right, #1E3A8A, #3B82F6) 1;
+    border-radius: 8px;
+}
+
+/* Darker, Rich Gradient Background */
+.dark-bg {
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    background-attachment: fixed;
+}
+
+/* Sleek Scrollbar with Subtle Glow */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #0F172A;
+}
+::-webkit-scrollbar-thumb {
+    background: #475569;
+    border: 2px solid;
+    border-image: linear-gradient(to bottom, #1E3A8A, #3B82F6) 1;
+    border-radius: 5px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #60A5FA;
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+}
+
+/* Smooth Icon Hover with Pop */
+.icon-hover {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), color 0.3s ease;
+    color: #E2E8F0;
+}
+.icon-hover:hover {
+    transform: scale(1.25) rotate(10deg);
+    color: #60A5FA;
+}
+
+/* Checkmark Animation with Spring */
+.animate-check {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    animation: draw-check 0.6s ease-in-out forwards, spring-check 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0.6s;
+}
+@keyframes draw-check {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes spring-check {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+}
+
+/* X-mark Animation with Spin */
+.animate-xmark {
+    stroke-dasharray: 70;
+    stroke-dashoffset: 70;
+    animation: draw-x 0.6s ease-in-out forwards, spin-x 0.4s ease-in-out 0.6s;
+}
+@keyframes draw-x {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes spin-x {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+/* Elegant Fade-in with Lift */
+.animate-fade-in {
+    opacity: 0;
+    transform: translateY(15px);
+    animation: fade-in 0.8s ease-out forwards;
+    animation-delay: 0.2s;
+}
+@keyframes fade-in {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Success Typing with Cool Cursor */
+.typing-animation-success {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid;
+    border-image: linear-gradient(to bottom, #10B981, #34D399) 1;
+    max-width: 0;
+    animation: typing-success 2.2s steps(30, end) forwards, blink-caret-success 0.75s step-end infinite;
+    color: #E2E8F0;
+}
+@keyframes typing-success {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 100%;
+    }
+}
+@keyframes blink-caret-success {
+    from, to {
+        border-image: linear-gradient(to bottom, transparent, transparent) 1;
+    }
+    50% {
+        border-image: linear-gradient(to bottom, #10B981, #34D399) 1;
+    }
+}
+
+/* Failure Typing with Warm Glow */
+.typing-animation-fail {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 4px solid;
+    border-image: linear-gradient(to bottom, #EF4444, #F87171) 1;
+    max-width: 0;
+    animation: typing-fail 2.7s steps(42, end) forwards, blink-caret-fail 0.75s step-end infinite;
+    color: #E2E8F0;
+}
+@keyframes typing-fail {
+    from {
+        max-width: 0;
+    }
+    to {
+        max-width: 100%;
+    }
+}
+@keyframes blink-caret-fail {
+    from, to {
+        border-image: linear-gradient(to bottom, transparent, transparent) 1;
+    }
+    50% {
+        border-image: linear-gradient(to bottom, #EF4444, #F87171) 1;
+    }
+}
+
+/* Refined Glassmorphism with Border */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 2px solid;
+    border-image: linear-gradient(to right, #1E3A8A, #3B82F6) 1;
+    border-radius: 12px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    color: #E2E8F0;
+}
+.glass-effect:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Modern Input Styling with Consistent Border */
+.input-field {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border-radius: 8px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #1E3A8A, #3B82F6) 1;
+    background: #1F2937;
+    color: #E2E8F0;
+    font-size: 1.125rem;
+    transition: all 0.2s ease-in-out;
+}
+.input-field::placeholder {
+    color: #6B7280;
+}
+.input-field:focus {
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3);
+    border: 2px solid #3B82F6;
+}
+
+/* Enhanced Neumorphic Button with Border */
+.neumorphic-btn {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border-radius: 8px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #1E3A8A, #3B82F6) 1;
+    background: #1F2937;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3), -6px -6px 12px rgba(255, 255, 255, 0.05);
+    color: #E2E8F0;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+.neumorphic-btn:hover {
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.35), -3px -3px 6px rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+    background: #374151;
+}
+.neumorphic-btn:active {
+    box-shadow: inset 3px 3px 6px rgba(0, 0, 0, 0.3), inset -3px -3px 6px rgba(255, 255, 255, 0.05);
+    transform: translateY(0);
+}
+
+/* Bold Gradient Button with Border and Pulse */
+.gradient-btn {
+    width: 100%;
+    padding: 12px 16px 12px 40px;
+    border-radius: 8px;
+    border: 2px solid;
+    border-image: linear-gradient(to right, #1E3A8A, #3B82F6) 1;
+    background: linear-gradient(45deg, #3B82F6, #60A5FA);
+    color: #F8FAFC;
+    font-size: 1.125rem;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+.gradient-btn:hover {
+    background: linear-gradient(45deg, #2563EB, #3B82F6);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    animation: pulse 1.5s infinite;
+}
+.gradient-btn:active {
+    transform: scale(0.98);
+    box-shadow: 0 3px 8px rgba(59, 130, 246, 0.3);
+}
+@keyframes pulse {
+    0% {
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+    }
+    100% {
+        box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+    }
+}
