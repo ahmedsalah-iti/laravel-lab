@@ -1,5 +1,4 @@
-<x-layout.app>
-    <x-slot:title>Edit {{$post->title}}</x-slot>
+
 <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
 <section class="bg-gray-800 rounded-xl fb-shadow p-6 md:p-8">
     <div class="flex items-center space-x-3 mb-6">
@@ -64,57 +63,64 @@
                 @enderror
             </div>
         </div>
-<!-- Image -->
+<!-- Single Upload Button with Icon -->
 <div class="mt-6">
-    <label for="image" class="block text-sm font-medium text-gray-300 mb-2 flex items-center space-x-2 cursor-pointer">
-        <svg class="w-5 h-5 text-gray-400 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2zM12 12l-3 4h6l-3-4z" />
+    <label for="image" class="inline-flex items-center px-4 py-2 border-2 border-blue-600 text-blue-300 bg-transparent text-sm font-medium rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 cursor-pointer space-x-2">
+        <svg class="w-5 h-5 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7M16 3H8a2 2 0 00-2 2v2h12V5a2 2 0 00-2-2zM12 12l-3 4h6l-3-4z" />
         </svg>
-        <span>Upload Image (optional)</span>
-    </label>
-    <div class="relative">
+        <span id="fileNameText">Upload Image (optional)</span>
         <input
             type="file"
             id="image"
             name="image"
             accept="image/*"
-            class="block w-full text-sm text-gray-300
-                file:mr-4 file:py-2 file:px-4
-                file:rounded-lg file:border-0
-                file:text-sm file:font-semibold
-                file:bg-blue-600 file:text-white
-                hover:file:bg-blue-700
-                transition duration-200
-                bg-gray-700 rounded-lg border fb-border focus:outline-none"
+            class="hidden"
+            onchange="updateFileName()"
         >
-        @error('image')
-            <p class="text-red-400 text-sm mt-1">{{ $message }}</p>
-        @enderror
-    </div>
+    </label>
+    @error('image')
+        <p class="text-red-400 text-sm mt-2">{{ $message }}</p>
+    @enderror
 </div>
-        <!-- Buttons -->
-        <div class="flex justify-end mt-6 space-x-4">
-            <a
-                href="{{ route('posts.index') }}"
-                class="bg-gray-600 text-white px-6 py-3 rounded-lg font-medium text-lg hover:bg-gray-700 transition-all duration-200 fb-shadow flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-                <span>Cancel</span>
-            </a>
-            <button
-                type="submit"
-                class="bg-blue-500 text-white px-6 py-3 rounded-lg font-medium text-lg hover:bg-blue-600 transition-all duration-200 fb-shadow flex items-center space-x-2"
-            >
-                <svg class="w-5 h-5 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>Update Post</span>
-            </button>
-        </div>
+
+<script>
+    function updateFileName() {
+        const fileInput = document.getElementById('image');
+        const fileNameText = document.getElementById('fileNameText');
+        const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "Upload Image (optional)";
+        fileNameText.textContent = fileName;
+    }
+</script>
+
+<!-- Buttons -->
+<div class="flex justify-end mt-6 space-x-4">
+    <!-- Cancel Button - Gray Theme -->
+    <a
+        href="{{ route('posts.index') }}"
+        class="inline-flex items-center px-6 py-3 border-2 border-gray-500 text-gray-300 bg-transparent text-lg font-medium rounded-md hover:bg-gray-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-400 transition-all duration-200 space-x-2"
+    >
+        <svg class="w-5 h-5 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+        <span>Cancel</span>
+    </a>
+
+    <!-- Update Button - Blue Theme -->
+    <button
+        type="submit"
+        class="inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-300 bg-transparent text-lg font-medium rounded-md hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 space-x-2"
+    >
+        <svg class="w-5 h-5 icon-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <span>Update Post</span>
+    </button>
+</div>
+
     </form>
 </section>
 </main>
 
-</x-layout.app>
+

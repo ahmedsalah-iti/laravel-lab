@@ -1,9 +1,6 @@
-<x-layout.app>
+
     <main class="flex-grow container mx-auto px-4 py-8 max-w-3xl">
-@php
-    $status = $status ?? 'failed';
-@endphp
-<x-slot:title>{{$status}}</x-slot>
+
 <section class="bg-gray-900 rounded-2xl shadow-lg p-8 md:p-12 max-w-lg mx-auto">
     <div class="flex flex-col items-center mb-8">
         @if ($status === 'success')
@@ -34,4 +31,4 @@
     </div>
 </section>
     </main>
-</x-layout.app>
+

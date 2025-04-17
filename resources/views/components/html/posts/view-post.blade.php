@@ -1,5 +1,4 @@
-<x-layout.app>
-    <x-slot:title>{{$post->title}}</x-slot>
+
     <main class="flex-grow container mx-auto px-4 py-8">
         <section class="bg-gray-800 rounded-xl shadow-lg p-6 max-w-2xl mx-auto my-4">
             <!-- Post Header -->
@@ -62,4 +61,3 @@
             </div>
         </section>
     </main>
-</x-layout.app>

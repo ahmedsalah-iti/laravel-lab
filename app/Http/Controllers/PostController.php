@@ -7,6 +7,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -47,7 +48,7 @@ class PostController extends Controller
         }
         $post->title = $requestData['title'];
         $post->content = $requestData['content'];
-        $post->user_id = 1;
+        $post->user_id = Auth::id();
         $post->save();
         return view('message', [
             'status' => 'success',
